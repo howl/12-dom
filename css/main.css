@@ -1,5 +1,54 @@
+@font-face {
+  font-family: 'Cantarell';
+  src: url('../assets/fonts/Cantarell-VF.otf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Comfortaa';
+  src: url('../assets/fonts/Comfortaa-Light.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Comfortaa';
+  src: url('../assets/fonts/Comfortaa-Regular.otf') format('opentype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Comfortaa';
+  src: url('../assets/fonts/Comfortaa-Medium.otf') format('opentype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Comfortaa';
+  src: url('../assets/fonts/Comfortaa-SemiBold.otf') format('opentype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Comfortaa';
+  src: url('../assets/fonts/Comfortaa-Bold.otf') format('opentype');
+  font-weight: 700;
+  font-style: normal;
+}
+
 * {
+  font-family: "Cantarell", sans-serif;
   box-sizing: border-box;
+}
+
+code,
+kbd,
+pre,
+samp,
+var {
+  font-family: "Adwaita Mono", monospace;
 }
 
 body {
@@ -19,6 +68,8 @@ body>header {
   margin: 0;
   width: 100%;
   color: white;
+  font-family: Comfortaa, sans-serif;
+  font-weight: 700;
   font-size: 4em;
   text-align: center;
   /* Sombra para mejorar la legibilidad con la capa oscura
