@@ -92,8 +92,15 @@ body>header {
 }
 
 #contenedorImagenCabecera>img {
+  /* Ponerlo como block evita que su div contenedor reserve una
+     línea de texto debajo */
   display: block;
+  /* ajustamos 100% de ancho con altura máxima y mínima redimensionando
+     la imagen hasta que cubra el espacio manteniendo su relación de aspecto */
   width: 100%;
+  min-height: 220px;
+  max-height: 220px;
+  object-fit: cover;
 }
 
 .flexContainer {
