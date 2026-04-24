@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+body>header {
+  position: relative;
+}
+
+#tituloCabecera {
+  position: absolute;
+  /* top a mitad y transform para subirlo la altura del elemento.
+     Forma de centrar sin usar flexbox. */
+  top: 50%;
+  transform: translateY(-50%);
+  margin: 0;
+  width: 100%;
+  color: white;
+  font-size: 4em;
+  text-align: center;
+  /* Sombra para mejorar la legibilidad con la capa oscura
+     que ahora he puesto sobre la imagen ya no hace tanta
+     falta pero también mejora la apariencia. */
+  text-shadow: 1px 1px 8px black;
+  /* Necesario para que la capa oscura de imagen no quede encima del texto. */
+  z-index: 1;
+}
+
+/* Capa oscura sobre la imagen para mejorar la legibilidad */
+#contenedorImagenCabecera::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
+}
+
+#contenedorImagenCabecera>img {
+  display: block;
+  width: 100%;
+}
+
+.flexContainer {
+  display: flex;
+  flex-flow: row wrap;
+}
