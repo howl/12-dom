@@ -91,7 +91,7 @@ body>header {
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
 }
 
-#contenedorImagenCabecera>img {
+#imagenCabecera {
   /* Ponerlo como block evita que su div contenedor reserve una
      línea de texto debajo */
   display: block;
