@@ -57,6 +57,7 @@ body {
 
 body>header {
   position: relative;
+  color: white;
 }
 
 #tituloCabecera {
@@ -67,7 +68,6 @@ body>header {
   transform: translateY(-50%);
   margin: 0;
   width: 100%;
-  color: white;
   font-family: Comfortaa, sans-serif;
   font-weight: 700;
   font-size: 4em;
@@ -78,6 +78,22 @@ body>header {
   text-shadow: 1px 1px 8px black;
   /* Necesario para que la capa oscura de imagen no quede encima del texto. */
   z-index: 1;
+}
+
+#contenedorImagenCabecera {
+  margin: 0;
+}
+
+#contenedorImagenCabecera>figcaption {
+  position: absolute;
+  top: 0;
+  padding: 2px;
+  font-size: 0.7em;
+  border-color: white;
+  border-style: solid;
+  border-width: 0 1px 1px 0;
+  border-radius: 5px 0;
+  background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(80, 80, 80, 0.5));
 }
 
 /* Capa oscura sobre la imagen para mejorar la legibilidad */
