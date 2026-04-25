@@ -60,10 +60,8 @@ const cabeceraAleatoria = () => {
   const cabeceraImagen = cabeceraInactiva.querySelector('img');
   cabeceraImagen.src = cabeceras[numCabecera].src;
   cabeceraImagen.alt = cabeceras[numCabecera].titulo;
-  /* TODO: Cabmiar a no usar indices para actuar sobre el span de titulo y autor. */
-  const cabeceraCaption = cabeceraInactiva.querySelectorAll('figcaption>span');
-  cabeceraCaption[0].textContent = cabeceras[numCabecera].titulo;
-  cabeceraCaption[1].textContent = cabeceras[numCabecera].autor;
+  cabeceraInactiva.querySelector('figcaption>span[data-class="titulo"]').textContent = cabeceras[numCabecera].titulo;
+  cabeceraInactiva.querySelector('figcaption>span[data-class="autor"]').textContent = cabeceras[numCabecera].autor;
   /*
     El cambio de la cabecera inactiva a activa se hace rápido
     y parece no haber diferencia en como hacer el proceso pero
