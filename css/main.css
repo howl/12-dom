@@ -84,7 +84,7 @@ body>header {
     Necesario para que la capa oscura de imagen no quede encima
     del texto.
   */
-  z-index: 2;
+  z-index: 3;
 }
 
 .imagenCabecera {
@@ -106,7 +106,7 @@ body>header {
     estrictamente necesario, pero así aseguramos que si ambas
     quedan visibles, la activa sea la queda por encima.
   */
-  z-index: 1;
+  z-index: 2;
   /*
     Dado que la capa inactiva está encima para que el efecto de
     transición sea el desvanecimiento de esta, es necesario hacer
