@@ -6,6 +6,11 @@
   un nuevo índice.
 */
 let numCabecera = -1;
+
+/**
+ * Cuando se llama a cabecera aleatoria se pone una nueva cabecera
+ * en la cabecera inactiva y se hace la activa.
+ */
 const cabeceraAleatoria = () => {
   const cabeceras = [
     {
@@ -84,6 +89,13 @@ const cabeceraAleatoria = () => {
   }
 };
 
+/**
+ * Esta función anónima se llama automáticamente.
+ * Llama a cabeceraAleatoria en el intervalo especificado y la
+ * ejecuta una primera vez desde el principio para no esperar
+ * a que el intervalo se cumpla al menos una vez para la primera
+ * llamada.
+ */
 (() => {
   /*
     Hago que la cabecera se cambie cada 10 segundos.
@@ -93,7 +105,6 @@ const cabeceraAleatoria = () => {
     Por ello después de poner la función a intervalos la ejecuto
     una primera vez justo después.
   */
-
   window.setInterval(cabeceraAleatoria, 2000);
   cabeceraAleatoria();
 })();
