@@ -62,8 +62,10 @@ body>header {
 
 #tituloCabecera {
   position: absolute;
-  /* top a mitad y transform para subirlo la altura del elemento.
-     Forma de centrar sin usar flexbox. */
+  /*
+    top a mitad y transform para subirlo la altura del elemento.
+    Forma de centrar sin usar flexbox.
+  */
   top: 50%;
   transform: translateY(-50%);
   margin: 0;
@@ -72,16 +74,24 @@ body>header {
   font-weight: 700;
   font-size: 4em;
   text-align: center;
-  /* Sombra para mejorar la legibilidad con la capa oscura
-     que ahora he puesto sobre la imagen ya no hace tanta
-     falta pero también mejora la apariencia. */
+  /*
+    Sombra para mejorar la legibilidad con la capa oscura
+    que ahora he puesto sobre la imagen ya no hace tanta
+    falta pero también mejora la apariencia.
+  */
   text-shadow: 1px 1px 8px black;
-  /* Necesario para que la capa oscura de imagen no quede encima del texto. */
+  /*
+    Necesario para que la capa oscura de imagen no quede encima
+    del texto.
+  */
   z-index: 2;
 }
 
 .imagenCabecera {
-  /* Uso posición relativa para que el caption no se posicione encima del borde del elemento si se decide ponerlo. */
+  /*
+    Uso posición relativa para que el caption no se posicione
+    encima del borde del elemento si se decide ponerlo.
+  */
   position: relative;
   margin: 0;
 }
@@ -91,15 +101,19 @@ body>header {
   position: absolute;
   width: 100%;
   top: 0;
-  /* Se hace fade-in out de una a otra por lo que no sería
-     estrictamente necesario, pero así aseguramos que si ambas
-     quedan visibles, la activa sea la queda por encima. */
+  /*
+    Se hace fade-in out de una a otra por lo que no sería
+    estrictamente necesario, pero así aseguramos que si ambas
+    quedan visibles, la activa sea la queda por encima.
+  */
   z-index: 1;
-  /* Dado que la capa inactiva está encima para que el efecto de
-     transición sea el desvanecimiento de esta, es necesario hacer
-     que dicha capa no haga caso a los eventos del ratón si queremos
-     por ejemplo poder seleccionar el texto de caption de la activa
-     que está por debajo. */
+  /*
+    Dado que la capa inactiva está encima para que el efecto de
+    transición sea el desvanecimiento de esta, es necesario hacer
+    que dicha capa no haga caso a los eventos del ratón si queremos
+    por ejemplo poder seleccionar el texto de caption de la activa
+    que está por debajo.
+  */
   pointer-events: none;
 }
 
@@ -128,11 +142,15 @@ body>header {
 }
 
 .imagenCabecera>img {
-  /* Ponerlo como block evita que su div contenedor reserve una
-     línea de texto debajo */
+  /*
+    Ponerlo como block evita que su div contenedor reserve una
+    línea de texto debajo
+  */
   display: block;
-  /* ajustamos 100% de ancho con altura máxima y mínima redimensionando
-     la imagen hasta que cubra el espacio manteniendo su relación de aspecto */
+  /*
+    Ajustamos 100% de ancho con altura máxima y mínima redimensionando
+    la imagen hasta que cubra el espacio manteniendo su relación de aspecto
+  */
   width: 100%;
   min-height: 220px;
   max-height: 220px;

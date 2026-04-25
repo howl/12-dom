@@ -1,8 +1,10 @@
 'use strict';
 
-/* Defino numCabecera global porque si el índice de la nueva
-   cabecera aleatoria coincide la anterior, vuelvo a solicitar
-   un nuevo índice. */
+/*
+  Defino numCabecera global porque si el índice de la nueva
+  cabecera aleatoria coincide la anterior, vuelvo a solicitar
+  un nuevo índice.
+*/
 let numCabecera;
 const cabeceraAleatoria = () => {
   const cabeceras = [
@@ -43,13 +45,15 @@ const cabeceraAleatoria = () => {
   const cabeceraInactiva = document.querySelector('.imagenCabecera.inactiva');
   let nuevoNumCabecera;
   do {
-    /* Genera de 0 a cabeceras.length - 1 con probabilidades iguales.
-       El motivo de -1 es porque random nunca genera el 1 exacto, por ello
-       el valor máximo para por ejemplo 8 elementos será algo como 7,9999...
-       y de ahí con floor tendremos enteros de 0 a 7 con igualdad de posibilidades
-       de aparecer.
-       Si usasemos round el primer y último elemento tienen un margen de 0,5 valores
-       para aparecer, los demás de 1,0. */
+    /*
+      Genera de 0 a cabeceras.length - 1 con probabilidades iguales.
+      El motivo de -1 es porque random nunca genera el 1 exacto, por ello
+      el valor máximo para por ejemplo 8 elementos será algo como 7,9999...
+      y de ahí con floor tendremos enteros de 0 a 7 con igualdad de posibilidades
+      de aparecer.
+      Si usasemos round el primer y último elemento tienen un margen de 0,5 valores
+      para aparecer, los demás de 1,0.
+    */
     nuevoNumCabecera = Math.floor(Math.random() * cabeceras.length);
   } while (numCabecera === nuevoNumCabecera);
   numCabecera = nuevoNumCabecera;
@@ -60,14 +64,16 @@ const cabeceraAleatoria = () => {
   const cabeceraCaption = cabeceraInactiva.querySelectorAll('figcaption>span');
   cabeceraCaption[0].textContent = cabeceras[numCabecera].titulo;
   cabeceraCaption[1].textContent = cabeceras[numCabecera].autor;
-  /*  El cambio de la cabecera inactiva a activa se hace rápido
-      y parece no haber diferencia en como hacer el proceso pero
-      he elegido hacer:
+  /*
+    El cambio de la cabecera inactiva a activa se hace rápido
+    y parece no haber diferencia en como hacer el proceso pero
+    he elegido hacer:
       1.- Intercambio los estados de ambas.
       2.- Pongo la opacidad de la inactiva (que ahora es la activa) a 1,
           como está por debajo no se ve mal efecto.
       3.- Hago que la opacidad de la activa (que ahora es la inactiva),
-          desvanezca a 0*/
+          desvanezca a 0
+  */
   const cabeceraActiva = document.querySelector('.imagenCabecera:not(.inactiva)');
   cabeceraActiva.classList.toggle('inactiva');
   cabeceraInactiva.classList.toggle('inactiva');
@@ -76,12 +82,14 @@ const cabeceraAleatoria = () => {
 };
 
 (() => {
-  /* Hago que la cabecera se cambie cada 10 segundos.
+  /*
+    Hago que la cabecera se cambie cada 10 segundos.
     window.setInterval no ejecuta la función en el segundo cero
     por lo que hasta que no pasa el tiempo del intervalo no se
     pone una cabecera aleatoria.
     Por ello después de poner la función a intervalos la ejecuto
-    una primera vez justo después. */
+    una primera vez justo después.
+  */
 
   window.setInterval(cabeceraAleatoria, 2000);
   cabeceraAleatoria();
