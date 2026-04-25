@@ -77,30 +77,29 @@ body>header {
      falta pero también mejora la apariencia. */
   text-shadow: 1px 1px 8px black;
   /* Necesario para que la capa oscura de imagen no quede encima del texto. */
-  /* z-index: 0; */
+  z-index: 2;
 }
 
 .imagenCabecera {
   /* Uso posición relativa para que el caption no se posicione encima del borde del elemento si se decide ponerlo. */
   position: relative;
   margin: 0;
-  /* border: 10px solid green; */
-  z-index: -2;
 }
 
 .imagenCabecera.inactiva {
-  transition: opacity 0.5s;
+  transition: opacity 1.5s;
   position: absolute;
   width: 100%;
-  /* position: relative; */
   top: 0;
   /* Se hace fade-in out de una a otra por lo que no sería
      estrictamente necesario, pero así aseguramos que si ambas
      quedan visibles, la activa sea la queda por encima. */
-  z-index: -1;
-  /* border: 10px solid red; */
-  /* Actualmente la capa inactiva está encima, ver si cambiar la lógica
-    Lo siguiente se supone que permite pasar los eventos del ratón a la capa inferior pero no ha conseguido poder seleccionar el texto de titulo y autor de la capa. */
+  z-index: 1;
+  /* Dado que la capa inactiva está encima para que el efecto de
+     transición sea el desvanecimiento de esta, es necesario hacer
+     que dicha capa no haga caso a los eventos del ratón si queremos
+     por ejemplo poder seleccionar el texto de caption de la activa
+     que está por debajo. */
   pointer-events: none;
 }
 
@@ -116,6 +115,7 @@ body>header {
   border-radius: 0 0 5px 0;
   background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(80, 80, 80, 0.5));
   backdrop-filter: blur(30px) brightness(70%);
+  z-index: 1;
 }
 
 /* Capa oscura sobre la imagen para mejorar la legibilidad */

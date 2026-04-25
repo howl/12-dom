@@ -75,6 +75,6 @@ const cabeceraAleatoria = () => {
     Por ello después de poner la función a intervalos la ejecuto
     una primera vez justo después. */
 
-  window.setInterval(cabeceraAleatoria, 1000);
+  window.setInterval(cabeceraAleatoria, 2000);
   cabeceraAleatoria();
 })();
