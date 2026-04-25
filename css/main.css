@@ -125,6 +125,7 @@ body>header {
   color: lightgrey;
   font-size: 0.8em;
   text-shadow: 1px 1px 1px black;
+  font-style: italic;
   border-radius: 0 0 5px 0;
   background: linear-gradient(rgba(255, 255, 255, 0.1), rgba(80, 80, 80, 0.3));
   backdrop-filter: blur(2.5px) brightness(70%);
@@ -166,18 +167,25 @@ main>section {
   display: flex;
   flex-flow: row wrap;
   justify-content: space-between;
-  padding: 3dvw;
-  gap: 1.5dvw;
+  gap: 2dvw;
+  margin: 1dvw;
+  padding: 2dvw;
+  /* border: 1px solid black; */
+  border-radius: 1dvw;
+  background: linear-gradient(rgba(0, 155, 255, 0.1), rgba(0, 80, 220, 0.2));
+  box-shadow: 0 0 0.9dvw 0.3vw rgba(0, 0, 0, 0.3);
 }
 
 #imgGalery .card {
-  flex-basis: calc(33.33% - 1dvw);
-  border: 1px solid black;
-  border-radius: 1dvw;
+  flex-basis: calc(33.33% - 1.331dvw);
+  border: inherit;
+  border-radius: inherit;
   margin: 0;
-  overflow: hidden;
+  /* overflow: hidden; */
   transition: transform 0.5s ease;
   backdrop-filter: blur(2.5px);
+  background: linear-gradient(rgba(0, 155, 255, 0.1), rgba(0, 80, 220, 0.2));
+  box-shadow: inherit;
 }
 
 #imgGalery .card:hover {
@@ -198,7 +206,7 @@ main>section {
   hover. Así se evitan todos esos problemas.
   */
 #imgGalery .card:hover .cardFigure {
-  transform: scale(0.93);
+  transform: scale(0.90);
 }
 
 #imgGalery .cardFigure {
