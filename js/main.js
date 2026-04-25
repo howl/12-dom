@@ -40,7 +40,7 @@ const cabeceraAleatoria = () => {
       titulo: 'Ni yo lo sé ¿Pompones, moho?',
     },
   ];
-  const cabecera = document.querySelector('#imagenCabecera');
+  const cabeceraInactiva = document.querySelector('.imagenCabecera.inactiva');
   let nuevoNumCabecera;
   do {
     /* Genera de 0 a cabeceras.length - 1 con probabilidades iguales.
@@ -53,23 +53,28 @@ const cabeceraAleatoria = () => {
     nuevoNumCabecera = Math.floor(Math.random() * cabeceras.length);
   } while (numCabecera === nuevoNumCabecera);
   numCabecera = nuevoNumCabecera;
-  const cabeceraImagen = cabecera.querySelector('img');
+  const cabeceraImagen = cabeceraInactiva.querySelector('img');
   cabeceraImagen.src = cabeceras[numCabecera].src;
   cabeceraImagen.alt = cabeceras[numCabecera].titulo;
   /* TODO: Cabmiar a no usar indices para actuar sobre el span de titulo y autor. */
-  const cabeceraCaption = cabecera.querySelectorAll('figcaption>span');
+  const cabeceraCaption = cabeceraInactiva.querySelectorAll('figcaption>span');
   cabeceraCaption[0].textContent = cabeceras[numCabecera].titulo;
   cabeceraCaption[1].textContent = cabeceras[numCabecera].autor;
+  const cabeceraActiva = document.querySelector('.imagenCabecera:not(.inactiva)');
+  cabeceraActiva.style.opacity = '0';
+  cabeceraInactiva.style.opacity = '1';
+  cabeceraActiva.classList.toggle('inactiva');
+  cabeceraInactiva.classList.toggle('inactiva');
 };
 
 (() => {
   /* Hago que la cabecera se cambie cada 10 segundos.
-     window.setInterval no ejecuta la función en el segundo cero
-     por lo que hasta que no pasa el tiempo del intervalo no se
-     pone una cabecera aleatoria.
-     Por ello después de poner la función a intervalos la ejecuto
-     una primera vez justo después. */
+    window.setInterval no ejecuta la función en el segundo cero
+    por lo que hasta que no pasa el tiempo del intervalo no se
+    pone una cabecera aleatoria.
+    Por ello después de poner la función a intervalos la ejecuto
+    una primera vez justo después. */
 
-  window.setInterval(cabeceraAleatoria, 10000);
+  window.setInterval(cabeceraAleatoria, 1000);
   cabeceraAleatoria();
 })();

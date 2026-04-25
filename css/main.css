@@ -77,14 +77,34 @@ body>header {
      falta pero también mejora la apariencia. */
   text-shadow: 1px 1px 8px black;
   /* Necesario para que la capa oscura de imagen no quede encima del texto. */
-  z-index: 1;
+  /* z-index: 0; */
 }
 
-#imagenCabecera {
+.imagenCabecera {
+  /* Uso posición relativa para que el caption no se posicione encima del borde del elemento si se decide ponerlo. */
+  position: relative;
   margin: 0;
+  /* border: 10px solid green; */
+  z-index: -2;
 }
 
-#imagenCabecera>figcaption {
+.imagenCabecera.inactiva {
+  transition: opacity 0.5s;
+  position: absolute;
+  width: 100%;
+  /* position: relative; */
+  top: 0;
+  /* Se hace fade-in out de una a otra por lo que no sería
+     estrictamente necesario, pero así aseguramos que si ambas
+     quedan visibles, la activa sea la queda por encima. */
+  z-index: -1;
+  /* border: 10px solid red; */
+  /* Actualmente la capa inactiva está encima, ver si cambiar la lógica
+    Lo siguiente se supone que permite pasar los eventos del ratón a la capa inferior pero no ha conseguido poder seleccionar el texto de titulo y autor de la capa. */
+  pointer-events: none;
+}
+
+.imagenCabecera>figcaption {
   position: absolute;
   top: 0;
   padding: 2px;
@@ -93,13 +113,13 @@ body>header {
   border-color: white;
   border-style: solid;
   border-width: 0 1px 1px 0;
-  border-radius: 5px 0;
+  border-radius: 0 0 5px 0;
   background: linear-gradient(rgba(255, 255, 255, 0.2), rgba(80, 80, 80, 0.5));
   backdrop-filter: blur(30px) brightness(70%);
 }
 
 /* Capa oscura sobre la imagen para mejorar la legibilidad */
-#imagenCabecera::after {
+.imagenCabecera::after {
   content: "";
   position: absolute;
   top: 0;
@@ -109,7 +129,7 @@ body>header {
   background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.5));
 }
 
-#imagenCabecera>img {
+.imagenCabecera>img {
   /* Ponerlo como block evita que su div contenedor reserve una
      línea de texto debajo */
   display: block;
