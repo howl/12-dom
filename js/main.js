@@ -60,11 +60,19 @@ const cabeceraAleatoria = () => {
   const cabeceraCaption = cabeceraInactiva.querySelectorAll('figcaption>span');
   cabeceraCaption[0].textContent = cabeceras[numCabecera].titulo;
   cabeceraCaption[1].textContent = cabeceras[numCabecera].autor;
+  /*  El cambio de la cabecera inactiva a activa se hace rápido
+      y parece no haber diferencia en como hacer el proceso pero
+      he elegido hacer:
+      1.- Intercambio los estados de ambas.
+      2.- Pongo la opacidad de la inactiva (que ahora es la activa) a 1,
+          como está por debajo no se ve mal efecto.
+      3.- Hago que la opacidad de la activa (que ahora es la inactiva),
+          desvanezca a 0*/
   const cabeceraActiva = document.querySelector('.imagenCabecera:not(.inactiva)');
-  cabeceraActiva.style.opacity = '0';
-  cabeceraInactiva.style.opacity = '1';
   cabeceraActiva.classList.toggle('inactiva');
   cabeceraInactiva.classList.toggle('inactiva');
+  cabeceraInactiva.style.opacity = '1';
+  cabeceraActiva.style.opacity = '0';
 };
 
 (() => {
