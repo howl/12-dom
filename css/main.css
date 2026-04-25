@@ -158,7 +158,62 @@ body>header {
   object-fit: cover;
 }
 
+main>section {
+  margin: 0.5dvw;
+}
+
 .flexContainer {
   display: flex;
   flex-flow: row wrap;
+  justify-content: space-between;
+  padding: 3dvw;
+  gap: 1.5dvw;
+}
+
+#imgGalery .card {
+  flex-basis: calc(33.33% - 1dvw);
+  border: 1px solid black;
+  border-radius: 1dvw;
+  margin: 0;
+  overflow: hidden;
+  transition: transform 0.5s ease;
+  backdrop-filter: blur(2.5px);
+}
+
+#imgGalery .card:hover {
+  transform: scale(1.2);
+  z-index: 1;
+}
+
+/*
+  No puedo usar el pseudo selector hover en cardFigure porque con
+  el efecto de transformación hago un padding entre medias de card
+  y el. Ese espacio deja de ser hover de cardFigure. Partiendo del
+  pseudoselector hover en card meto que a sus hijos cardFigure y
+  así lo aplica mientras tenemos el hover en card.
+  Porque no simplemente meto un padding a card es por dos motivos,
+  uno que no hay transición como con transform y dos que al hacer
+  hover al elemento con más contenido y ponerle relleno hace que
+  los elementos de la fila de abajo se desplacen en base a dicho
+  hover. Así se evitan todos esos problemas.
+  */
+#imgGalery .card:hover .cardFigure {
+  transform: scale(0.93);
+}
+
+#imgGalery .cardFigure {
+  margin: 0;
+  border-radius: inherit;
+  transition: transform 0.5s ease;
+}
+
+#imgGalery .cardCaption p {
+  margin: 0;
+  padding: 1dvh 1dvw;
+}
+
+#imgGalery .cardImg {
+  width: 100%;
+  border-top-left-radius: inherit;
+  border-top-right-radius: inherit;
 }

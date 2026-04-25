@@ -7,6 +7,9 @@
 */
 let numCabecera = -1;
 
+/* Añado una variable fragmento que usaré para la galería de imágenes. */
+const fragmento = document.createDocumentFragment();
+
 /**
  * Cuando se llama a cabecera aleatoria se pone una nueva cabecera
  * en la cabecera inactiva y se hace la activa.
@@ -107,4 +110,71 @@ const cabeceraAleatoria = () => {
   */
   window.setInterval(cabeceraAleatoria, 2000);
   cabeceraAleatoria();
+})();
+
+const cargarGaleria = (() => {
+  const galeria = [
+    {
+      src: 'assets/images/viajes/viajes-1.jpg',
+      pais: 'Cuba',
+      descripcion: 'En Varadero encontrarás las mejores playas cristalinas.',
+    }, {
+      src: 'assets/images/viajes/viajes-2.jpg',
+      pais: 'Maldivas',
+      descripcion: 'Disfruta de los mejores atolones del mundo.',
+    }, {
+      src: 'assets/images/viajes/viajes-3.jpg',
+      pais: 'Múltiples destinos',
+      descripcion: 'Si no te decides que país quieres visitar hay disponibles viajes por varios de ellos a la vez.',
+    }, {
+      src: 'assets/images/viajes/viajes-4.jpg',
+      pais: 'España',
+      descripcion: 'Sevilla tiene un color especial.',
+    }, {
+      src: 'assets/images/viajes/viajes-5.jpg',
+      pais: 'España',
+      descripcion: 'La misma plaza desde otro lado, o quizás es Naboo.',
+    }, {
+      src: 'assets/images/viajes/viajes-6.jpg',
+      pais: 'España',
+      descripcion: 'Paseo del Arañón.',
+    }, {
+      src: 'assets/images/viajes/viajes-7.jpg',
+      pais: 'España',
+      descripcion: 'Castillo de la Yedra.',
+    },
+  ];
+
+  const imgGalery = document.querySelector('#imgGalery');
+  galeria.forEach((imagen, index) => {
+    const imgFigureCaptionPais = document.createElement('p');
+    imgFigureCaptionPais.textContent = `País: ${imagen.pais}`;
+
+    const imgFigureCaptionDescripcion = document.createElement('p');
+    imgFigureCaptionDescripcion.textContent = `Descripción: ${imagen.descripcion}`;
+
+    const imgFigureCaption = document.createElement('figcaption');
+    imgFigureCaption.classList.add('cardCaption');
+
+    imgFigureCaption.appendChild(imgFigureCaptionPais);
+    imgFigureCaption.appendChild(imgFigureCaptionDescripcion);
+
+    const imgFigureImg = document.createElement('img');
+    imgFigureImg.classList.add('cardImg');
+    imgFigureImg.src = imagen.src;
+    imgFigureImg.alt = imagen.descripcion;
+
+    const imgFigure = document.createElement('figure');
+    imgFigure.classList.add('cardFigure');
+    imgFigure.appendChild(imgFigureImg);
+    imgFigure.appendChild(imgFigureCaption);
+
+    const imgCard = document.createElement('div');
+    imgCard.id = `img${index}`;
+    imgCard.classList.add('card');
+    imgCard.appendChild(imgFigure);
+
+    fragmento.append(imgCard);
+  });
+  imgGalery.appendChild(fragmento);
 })();
