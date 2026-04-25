@@ -153,8 +153,8 @@ body>header {
     la imagen hasta que cubra el espacio manteniendo su relación de aspecto
   */
   width: 100%;
-  min-height: 220px;
-  max-height: 220px;
+  min-height: 33dvh;
+  max-height: 33dvh;
   object-fit: cover;
 }
 
