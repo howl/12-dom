@@ -5,7 +5,7 @@
   cabecera aleatoria coincide la anterior, vuelvo a solicitar
   un nuevo índice.
 */
-let numCabecera;
+let numCabecera = -1;
 const cabeceraAleatoria = () => {
   const cabeceras = [
     {
@@ -42,41 +42,46 @@ const cabeceraAleatoria = () => {
       titulo: 'Ni yo lo sé ¿Pompones, moho?',
     },
   ];
-  const cabeceraInactiva = document.querySelector('.imagenCabecera.inactiva');
   let nuevoNumCabecera;
-  do {
+  if (cabeceras.length > 1)
+    do {
+      /*
+        Genera de 0 a cabeceras.length - 1 con probabilidades iguales.
+        El motivo de -1 es porque random nunca genera el 1 exacto, por ello
+        el valor máximo para por ejemplo 8 elementos será algo como 7,9999...
+        y de ahí con floor tendremos enteros de 0 a 7 con igualdad de posibilidades
+        de aparecer.
+        Si usasemos round el primer y último elemento tienen un margen de 0,5 valores
+        para aparecer, los demás de 1,0.
+      */
+      nuevoNumCabecera = Math.floor(Math.random() * cabeceras.length);
+    } while (numCabecera === nuevoNumCabecera);
+  else
+    nuevoNumCabecera = cabeceras.length - 1;
+  if (numCabecera !== nuevoNumCabecera) {
+    numCabecera = nuevoNumCabecera;
+    const cabeceraInactiva = document.querySelector('.imagenCabecera.inactiva');
+    const cabeceraImagen = cabeceraInactiva.querySelector('img');
+    cabeceraImagen.src = cabeceras[numCabecera].src;
+    cabeceraImagen.alt = cabeceras[numCabecera].titulo;
+    cabeceraInactiva.querySelector('figcaption>span[data-class="titulo"]').textContent = cabeceras[numCabecera].titulo;
+    cabeceraInactiva.querySelector('figcaption>span[data-class="autor"]').textContent = cabeceras[numCabecera].autor;
     /*
-      Genera de 0 a cabeceras.length - 1 con probabilidades iguales.
-      El motivo de -1 es porque random nunca genera el 1 exacto, por ello
-      el valor máximo para por ejemplo 8 elementos será algo como 7,9999...
-      y de ahí con floor tendremos enteros de 0 a 7 con igualdad de posibilidades
-      de aparecer.
-      Si usasemos round el primer y último elemento tienen un margen de 0,5 valores
-      para aparecer, los demás de 1,0.
+      El cambio de la cabecera inactiva a activa se hace rápido
+      y parece no haber diferencia en como hacer el proceso pero
+      he elegido hacer:
+        1.- Intercambio los estados de ambas.
+        2.- Pongo la opacidad de la inactiva (que ahora es la activa) a 1,
+            como está por debajo no se ve mal efecto.
+        3.- Hago que la opacidad de la activa (que ahora es la inactiva),
+            desvanezca a 0
     */
-    nuevoNumCabecera = Math.floor(Math.random() * cabeceras.length);
-  } while (numCabecera === nuevoNumCabecera);
-  numCabecera = nuevoNumCabecera;
-  const cabeceraImagen = cabeceraInactiva.querySelector('img');
-  cabeceraImagen.src = cabeceras[numCabecera].src;
-  cabeceraImagen.alt = cabeceras[numCabecera].titulo;
-  cabeceraInactiva.querySelector('figcaption>span[data-class="titulo"]').textContent = cabeceras[numCabecera].titulo;
-  cabeceraInactiva.querySelector('figcaption>span[data-class="autor"]').textContent = cabeceras[numCabecera].autor;
-  /*
-    El cambio de la cabecera inactiva a activa se hace rápido
-    y parece no haber diferencia en como hacer el proceso pero
-    he elegido hacer:
-      1.- Intercambio los estados de ambas.
-      2.- Pongo la opacidad de la inactiva (que ahora es la activa) a 1,
-          como está por debajo no se ve mal efecto.
-      3.- Hago que la opacidad de la activa (que ahora es la inactiva),
-          desvanezca a 0
-  */
-  const cabeceraActiva = document.querySelector('.imagenCabecera:not(.inactiva)');
-  cabeceraActiva.classList.toggle('inactiva');
-  cabeceraInactiva.classList.toggle('inactiva');
-  cabeceraInactiva.style.opacity = '1';
-  cabeceraActiva.style.opacity = '0';
+    const cabeceraActiva = document.querySelector('.imagenCabecera:not(.inactiva)');
+    cabeceraActiva.classList.toggle('inactiva');
+    cabeceraInactiva.classList.toggle('inactiva');
+    cabeceraInactiva.style.opacity = '1';
+    cabeceraActiva.style.opacity = '0';
+  }
 };
 
 (() => {
