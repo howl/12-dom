@@ -50,6 +50,20 @@
   box-sizing: border-box;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding-bottom: 2dvh;
+  font-family: Comfortaa, sans-serif;
+  color: white;
+  text-shadow: 1px 1px 1px slategrey,
+    1px 1px 4px black;
+}
+
 code,
 kbd,
 pre,
@@ -91,7 +105,8 @@ body>header {
     que ahora he puesto sobre la imagen ya no hace tanta
     falta pero también mejora la apariencia.
   */
-  text-shadow: 1px 1px 8px black;
+  text-shadow: 2px 2px 1px black,
+    1px 1px 8px black;
   /*
     Necesario para que la capa oscura de imagen no quede encima
     del texto.
