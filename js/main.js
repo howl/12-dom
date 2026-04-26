@@ -147,12 +147,24 @@ const cargarGaleria = (() => {
 
   const imgGalery = document.querySelector('#imgGalery');
   galeria.forEach((imagen, index) => {
+    const imgFigureCaptionPaisTag = document.createElement('span');
+    imgFigureCaptionPaisTag.classList.add('tag');
+    imgFigureCaptionPaisTag.textContent = 'País: ';
+    const imgFigureCaptionPaisText = document.createElement('span');
+    imgFigureCaptionPaisText.textContent = imagen.pais;
     const imgFigureCaptionPais = document.createElement('p');
-    imgFigureCaptionPais.textContent = `País: ${imagen.pais}`;
+    imgFigureCaptionPais.appendChild(imgFigureCaptionPaisTag);
+    imgFigureCaptionPais.appendChild(imgFigureCaptionPaisText);
 
+    const imgFigureCaptionDescripcionTag = document.createElement('span');
+    imgFigureCaptionDescripcionTag.classList.add('tag');
+    imgFigureCaptionDescripcionTag.textContent = 'Descripción: ';
+    const imgFigureCaptionDescripcionText = document.createElement('span');
+    imgFigureCaptionDescripcionText.textContent = imagen.descripcion;
     const imgFigureCaptionDescripcion = document.createElement('p');
     imgFigureCaptionDescripcion.classList.add('captionDescription');
-    imgFigureCaptionDescripcion.textContent = `Descripción: ${imagen.descripcion}`;
+    imgFigureCaptionDescripcion.appendChild(imgFigureCaptionDescripcionTag);
+    imgFigureCaptionDescripcion.appendChild(imgFigureCaptionDescripcionText);
 
     const imgFigureCaption = document.createElement('figcaption');
     imgFigureCaption.classList.add('cardCaption');

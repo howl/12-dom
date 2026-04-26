@@ -106,7 +106,7 @@ body>header {
   width: 100%;
   font-family: Comfortaa, sans-serif;
   font-weight: 700;
-  font-size: 4em;
+  font-size: 6dvh;
   text-align: center;
   /*
     Sombra para mejorar la legibilidad con la capa oscura
@@ -188,8 +188,8 @@ body>header {
     la imagen hasta que cubra el espacio manteniendo su relación de aspecto
   */
   width: 100%;
-  min-height: 33dvh;
-  max-height: 33dvh;
+  min-height: 20dvh;
+  max-height: 20dvh;
   object-fit: cover;
 }
 
@@ -197,7 +197,8 @@ main {
   overflow: hidden;
 }
 
-main>section {
+main>section,
+footer {
   margin: 2dvw;
   padding: 2dvw;
   border-radius: 1dvw;
@@ -209,6 +210,10 @@ main>section {
     hijos que lo tengan especificado.
   */
   /* backdrop-filter: blur(2.5px); */
+}
+
+footer {
+  backdrop-filter: blur(2.5px);
 }
 
 .flexContainer {
@@ -227,7 +232,7 @@ main>section {
   border-radius: 1dvw;
   background: linear-gradient(rgba(0, 155, 255, 0.1), rgba(0, 80, 220, 0.2));
   box-shadow: 0 0 0.9dvw 0.3vw rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(2.5px);
+  backdrop-filter: blur(3px);
 }
 
 #imgGalery .card:hover {
@@ -252,7 +257,7 @@ main>section {
 }
 
 #imgGalery .card:hover .captionDescription {
-  display: block;
+  transform: scale(1);
 }
 
 #imgGalery .cardFigure {
@@ -261,19 +266,25 @@ main>section {
   transition: transform 0.5s ease;
 }
 
-#imgGalery .cardCaption p {
-  margin: 0;
-  padding: 1dvh 1dvw;
-}
-
 #imgGalery .cardImg {
   width: 100%;
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
 }
 
+#imgGalery .cardCaption p {
+  margin: 0;
+  padding: 1dvh 1dvw;
+}
+
 #imgGalery .captionDescription {
-  display: none;
+  transition: transform 0.5s ease;
+  transform: scale(0);
+  font-style: italic;
+}
+
+#imgGalery .cardCaption .tag {
+  font-weight: 700;
 }
 
 @media screen and (min-width: 600px) {
