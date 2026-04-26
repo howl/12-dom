@@ -77,6 +77,7 @@ body {
   background-image: url('../assets/background/1.jpg');
   background-attachment: fixed;
   background-size: 150% 150%;
+  min-width: 280px;
 }
 
 body>header {
@@ -185,6 +186,10 @@ body>header {
   object-fit: cover;
 }
 
+main {
+  overflow: hidden;
+}
+
 main>section {
   margin: 2dvw;
   padding: 2dvw;
@@ -202,14 +207,14 @@ main>section {
 .flexContainer {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-between;
+  justify-content: flex-start;
   gap: 2dvw;
   margin: 0;
   padding: 0;
 }
 
 #imgGalery .card {
-  flex-basis: calc(33.33% - 1.331dvw);
+  flex-basis: calc(100%);
   margin: 0;
   transition: transform 0.5s ease;
   border-radius: 1dvw;
@@ -254,4 +259,22 @@ main>section {
   width: 100%;
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
+}
+
+@media screen and (min-width: 600px) {
+  #imgGalery .card {
+    flex-basis: calc(50% - 1.1dvw);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  #imgGalery .card {
+    flex-basis: calc(33.33% - 1.331dvw);
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  #imgGalery .card {
+    flex-basis: calc(25% - 1.51dvw);
+  }
 }
