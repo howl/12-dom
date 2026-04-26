@@ -3,6 +3,11 @@
     - Hacer clases espcíficas para bordes, fondos de caja, efectos de tipografía...:
       Dado que me salto hijos, no puedo usar border: inherit correctamente.
     - Partir el css y usar include para por ejempl los elementos de la cabecera.
+    - Hacer que los elementos del flex tengan una altura de solo la imagen y el país
+      para que al hacer hover salga la descripción y solo ese elemento se haga más grande
+      sin afectar al flujo de los demás es difícil de hacer y de posteriormente mantener
+      en caso de querer cambiar algo. Para este tipo de diseño es muy probable que grid
+      ofresca una forma más sencilla tanto de hacerlo como de posteriormente modificarlo.
 */
 
 @font-face {
@@ -257,7 +262,9 @@ footer {
 }
 
 #imgGalery .card:hover .captionDescription {
-  transform: scale(1);
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
 }
 
 #imgGalery .cardFigure {
@@ -278,9 +285,11 @@ footer {
 }
 
 #imgGalery .captionDescription {
-  transition: transform 0.5s ease;
-  transform: scale(0);
   font-style: italic;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-2em);
+  transition: all 0.5s ease;
 }
 
 #imgGalery .cardCaption .tag {
