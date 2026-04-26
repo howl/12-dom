@@ -53,12 +53,16 @@ var {
 
 body {
   margin: 0;
+  background-image: url('../assets/background/1.jpg');
+  background-attachment: fixed;
+  background-size: 150% 150%;
 }
 
 body>header {
   position: relative;
   color: white;
   box-shadow: 0 0 4px 5px rgba(0, 0, 0, 0.4);
+  margin-bottom: 3dvh;
 }
 
 #tituloCabecera {
@@ -160,7 +164,17 @@ body>header {
 }
 
 main>section {
-  margin: 0.5dvw;
+  margin: 2dvw;
+  padding: 2dvw;
+  border-radius: 1dvw;
+  background: linear-gradient(rgba(0, 155, 255, 0.1), rgba(0, 80, 220, 0.2));
+  box-shadow: 0 0 0.9dvw 0.3vw rgba(0, 0, 0, 0.3);
+  /*
+    Por algún motivo que desconozco si le doy un filtro de
+    desenfoque a la sección, deja de aplicar el filtro en los
+    hijos que lo tengan especificado.
+  */
+  /* backdrop-filter: blur(2.5px); */
 }
 
 .flexContainer {
@@ -168,24 +182,18 @@ main>section {
   flex-flow: row wrap;
   justify-content: space-between;
   gap: 2dvw;
-  margin: 1dvw;
-  padding: 2dvw;
-  /* border: 1px solid black; */
-  border-radius: 1dvw;
-  background: linear-gradient(rgba(0, 155, 255, 0.1), rgba(0, 80, 220, 0.2));
-  box-shadow: 0 0 0.9dvw 0.3vw rgba(0, 0, 0, 0.3);
+  margin: 0;
+  padding: 0;
 }
 
 #imgGalery .card {
   flex-basis: calc(33.33% - 1.331dvw);
-  border: inherit;
-  border-radius: inherit;
   margin: 0;
-  /* overflow: hidden; */
   transition: transform 0.5s ease;
-  backdrop-filter: blur(2.5px);
+  border-radius: 1dvw;
   background: linear-gradient(rgba(0, 155, 255, 0.1), rgba(0, 80, 220, 0.2));
-  box-shadow: inherit;
+  box-shadow: 0 0 0.9dvw 0.3vw rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(2.5px);
 }
 
 #imgGalery .card:hover {
