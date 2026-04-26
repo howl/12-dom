@@ -64,6 +64,13 @@ h6 {
     1px 1px 4px black;
 }
 
+p {
+  letter-spacing: 0.03em;
+  color: white;
+  text-shadow: 1px 1px 2px black,
+    1px 1px 8px black;
+}
+
 code,
 kbd,
 pre,
@@ -244,6 +251,10 @@ main>section {
   transform: scale(0.90);
 }
 
+#imgGalery .card:hover .captionDescription {
+  display: block;
+}
+
 #imgGalery .cardFigure {
   margin: 0;
   border-radius: inherit;
@@ -259,6 +270,10 @@ main>section {
   width: 100%;
   border-top-left-radius: inherit;
   border-top-right-radius: inherit;
+}
+
+#imgGalery .captionDescription {
+  display: none;
 }
 
 @media screen and (min-width: 600px) {

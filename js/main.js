@@ -151,6 +151,7 @@ const cargarGaleria = (() => {
     imgFigureCaptionPais.textContent = `País: ${imagen.pais}`;
 
     const imgFigureCaptionDescripcion = document.createElement('p');
+    imgFigureCaptionDescripcion.classList.add('captionDescription');
     imgFigureCaptionDescripcion.textContent = `Descripción: ${imagen.descripcion}`;
 
     const imgFigureCaption = document.createElement('figcaption');
