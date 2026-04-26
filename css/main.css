@@ -1,3 +1,10 @@
+/*
+  TODO:
+    - Hacer clases espcíficas para bordes, fondos de caja, efectos de tipografía...:
+      Dado que me salto hijos, no puedo usar border: inherit correctamente.
+    - Partir el css y usar include para por ejempl los elementos de la cabecera.
+*/
+
 @font-face {
   font-family: 'Cantarell';
   src: url('../assets/fonts/Cantarell-VF.otf') format('opentype');
