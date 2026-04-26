@@ -168,7 +168,6 @@ const cargarGaleria = (() => {
 
     const imgFigureCaption = document.createElement('figcaption');
     imgFigureCaption.classList.add('cardCaption');
-
     imgFigureCaption.appendChild(imgFigureCaptionPais);
     imgFigureCaption.appendChild(imgFigureCaptionDescripcion);
 
