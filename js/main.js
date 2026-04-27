@@ -150,8 +150,10 @@ const cargarGaleria = (() => {
     const imgFigureCaptionPaisTag = document.createElement('span');
     imgFigureCaptionPaisTag.classList.add('tag');
     imgFigureCaptionPaisTag.textContent = 'País: ';
+
     const imgFigureCaptionPaisText = document.createElement('span');
     imgFigureCaptionPaisText.textContent = imagen.pais;
+
     const imgFigureCaptionPais = document.createElement('p');
     imgFigureCaptionPais.appendChild(imgFigureCaptionPaisTag);
     imgFigureCaptionPais.appendChild(imgFigureCaptionPaisText);
@@ -159,8 +161,10 @@ const cargarGaleria = (() => {
     const imgFigureCaptionDescripcionTag = document.createElement('span');
     imgFigureCaptionDescripcionTag.classList.add('tag');
     imgFigureCaptionDescripcionTag.textContent = 'Descripción: ';
+
     const imgFigureCaptionDescripcionText = document.createElement('span');
     imgFigureCaptionDescripcionText.textContent = imagen.descripcion;
+
     const imgFigureCaptionDescripcion = document.createElement('p');
     imgFigureCaptionDescripcion.classList.add('captionDescription');
     imgFigureCaptionDescripcion.appendChild(imgFigureCaptionDescripcionTag);
